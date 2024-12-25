@@ -1,76 +1,52 @@
-<!doctype HTML>
-<html> 
-
- <script>
-let attempts =0;
-
-function checkPassword(form) {
-    
-    const hint = document.getElementById('hint'); 
-    const pass = "Cristiano Ronaldo";
-    const input =form.pwd.value; 
-    
-   
-    
-
-    if( input=== pass )    { 
-        
-        attempts = 0;
-        hint.style.display= 'none';
-        form.action = "2page.html";
-        return true;
-       
-    }else {
-        attempts++; 
-        
-        if(attempts >= 2) {
-           hint.style.display = 'block';
-
-
-    } 
-    wrongPass.style.display = 'block';
-    return false;
-
-}
-
-
-}
-
-
-
-    </script>
-
-    <head>
-         <style> 
-            #hint { display: none; color: black; }
-
-            .hidden-submitButton{ display:none; }
-
-            .wrongPass {color: red; font-size: 14px; display: none;}
-        
-         </style>
-
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> 01001011 00100110 01001011 </title>
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    </head>
-
-    <body>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01001011 001001100 01001011</title>
+    <style>
+        #hint { display: none; color: black; }
+        .wrongPass { color: red; font-size: 14px; display: none; }
+    </style>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+</head>
+<body>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-        <div class = "w3-card w3-center" style = "margin: auto; max-width: 600px;" > 
-        
-            <form name = "formita" class="w3-card-4" onsubmit = "return checkPassword(this);"  method = "POST" action ="#">
-             <p id ="wrongPass" class = "wrongPass"> Try again. </p>
-                <input type = "password" class = "w3-input w3-round-large w3-padding" placeholder = "password" maxlength = "18" name = "pwd">
-            <p id = "hint"> <b>hint:</b> the celebrity you said my older brother looks like. </p>
-            
-            <input type = "submit" class = "hidden-submitButton">
+    <div class="w3-card w3-center" style="margin: auto; max-width: 600px;">
+        <form id="passwordForm" class="w3-card-4">
+            <p id="wrongPass" class="wrongPass">Try again.</p>
+            <input type="password" class="w3-input w3-round-large w3-padding" placeholder="Password" maxlength="18" name="pwd">
+            <p id="hint"><b>Hint:</b> The Celebrity you said that my older brother looks like.</p>
+            <input type="submit" class="hidden-submitButton" style="display:none;">
         </form>
-    
-       
-        </div>
-     </body>
-  </html>
+    </div>
+
+    <script>
+        let attempts = 0;
+
+        // Function to check if the password is correct
+        document.getElementById('passwordForm').addEventListener('submit', function (event) {
+            event.preventDefault();  
+
+            const hint = document.getElementById('hint');
+            const wrongPass = document.getElementById('wrongPass');
+            const pass = "Cristiano Ronaldo";
+            const input = event.target.pwd.value;
+
+            if (input === pass) {
+                attempts = 0;
+                hint.style.display = 'none';
+                wrongPass.style.display = 'none';  
+                window.location.href = "https://meowmeow9401.github.io/01001011-001001100-01001011/2page.html"; 
+            } else {
+                attempts++;
+                if (attempts >= 2) {
+                    hint.style.display = 'block';  
+                }
+                wrongPass.style.display = 'block'; 
+            }
+        });
+    </script>
+</body>
+</html>
